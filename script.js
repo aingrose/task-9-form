@@ -23,7 +23,7 @@ container.setAttribute("class","Container")
 
 let form = document.createElement("form")
 
-let formele = ["First Name","Last Name","Gender","Address","Pincode","State","Country"]
+let formele = ["First Name","Last Name","Gender:","Address","Pincode","State","Country"]
 
 for(let i=0;i<formele.length;i++){
     let lb = document.createElement("label");
@@ -36,10 +36,11 @@ for(let i=0;i<formele.length;i++){
     element.style.borderRadius="12px"
     element.style.marginBottom="10px"
     if(formele[i]=="Gender:"){
+        
         let male = document.createElement("input");
         male.setAttribute("type","radio");
         male.setAttribute("id","Male");
-        male.setAttribute("name","Gender")
+        male.setAttribute("name","Gender:")
         male.style.paddingLeft="10px"
         form.appendChild(male)
         let mlable = document.createElement("label");
@@ -50,7 +51,7 @@ for(let i=0;i<formele.length;i++){
         let female = document.createElement("input");
         female.setAttribute("type","radio");
         female.setAttribute("id","Female");
-        female.setAttribute("name","Gender");
+        female.setAttribute("name","Gender:");
         female.style.marginLeft="10px";
         form.appendChild(female)
         let felable = document.createElement("label");
@@ -150,7 +151,7 @@ function updateTable(form) {
         let datacell = document.createElement("td");
 
         if (formele[i] === "Gender:") {
-            let gender = form.querySelector('input[name="Gender"]:checked');
+            let gender = form.querySelector('input[name="Gender:"]:checked');
             datacell.textContent = gender ? gender.id || gender.innerText : '';
         } else if (formele[i] === "Food Preference") {
             let foods = form.querySelectorAll('input[name="food"]:checked');
